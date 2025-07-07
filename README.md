@@ -2,6 +2,8 @@
 🚀 Automate Microsoft Teams Meeting Minutes (MoM) effortlessly!
     This application extracts transcripts from Microsoft Teams (VTT/DOCX) files, generates a structured Summary & Meeting Minutes, and allows exporting to PDF & DOCX.
 
+    You can access this app on https://ms-teams-mom-generator.streamlit.app/
+
 🛠 Features
 ✅ Upload Microsoft Teams transcripts (VTT/DOCX)
 ✅ AI-Powered Summarization using Ollama or OpenAI GPT
