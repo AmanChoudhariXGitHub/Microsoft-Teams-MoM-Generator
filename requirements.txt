@@ -1,0 +1,12 @@
+streamlit
+langchain
+langgraph
+langchain-community
+ollama
+openai
+pytz
+requests
+python-dotenv
+webvtt-py
+python-docx
+fpdf
