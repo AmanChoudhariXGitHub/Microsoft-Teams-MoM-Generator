@@ -12,10 +12,7 @@
 
 🚀 Installation & Setup
 1️⃣ Clone the Repository
-sh
-Copy
-Edit
-git clone https://github.com/amolnak/TeamsMoMGenerator.git
+git clone https://github.com/AmanChoudhariXGitHub/Microsoft-Teams-MoM-Generator
 cd TeamsMoMGenerator
 2️⃣ Install Dependencies
 
