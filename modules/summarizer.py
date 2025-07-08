@@ -1,17 +1,5 @@
-from modules.llm_client import invoke_openai, invoke_ollama
+from modules.llm_client import invoke_llm
 
-def summarize_transcript(transcript, use_openai=False, api_key=None):
-    """ Summarizes transcript using the selected LLM """
-    
-    prompt = f"""
-    Summarize the following meeting transcript into key points:
-
-    {transcript}
-
-    Ensure clarity, concise structure, and keep important decisions & action items.
-    """
-
-    if use_openai:
-        return invoke_openai(prompt, api_key)
-    
-    return invoke_ollama(prompt)
+def summarize_transcript(transcript, llm_type="ollama", api_key=None):
+    prompt = f"""Summarize the following meeting transcript into key points:\n\n{transcript}"""
+    return invoke_llm(prompt, llm_type=llm_type, api_key=api_key)
