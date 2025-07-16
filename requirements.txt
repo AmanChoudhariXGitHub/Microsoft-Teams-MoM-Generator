@@ -10,3 +10,5 @@ python-dotenv
 webvtt-py
 python-docx
 fpdf
+langchain-ollama
+groq>=0.4.2

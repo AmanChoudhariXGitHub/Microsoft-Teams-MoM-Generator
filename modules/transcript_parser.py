@@ -1,46 +1,35 @@
+import os
 import webvtt
 import docx
-import os
 
 def extract_transcript(file_path: str) -> str:
-    """ Extract transcript text from VTT or DOCX files """
-
-    transcript_text = ""
-
+    """
+    Extract transcript text from VTT or DOCX file.
+    Supported extensions: .vtt, .docx
+    """
     try:
         if file_path.endswith(".vtt"):
-            transcript_text = extract_from_vtt(file_path)
-
+            return extract_from_vtt(file_path)
         elif file_path.endswith(".docx"):
-            transcript_text = extract_from_docx(file_path)
-
+            return extract_from_docx(file_path)
         else:
-            raise ValueError("Unsupported file format! Please upload a .vtt or .docx file.")
-
+            raise ValueError("❌ Unsupported file format! Please upload a .vtt or .docx file.")
     except Exception as e:
-        return f"Error extracting transcript: {str(e)}"
-
-    return transcript_text
-
+        return f"⚠️ Error extracting transcript: {str(e)}"
 
 def extract_from_vtt(file_path: str) -> str:
-    """ Extracts transcript text from VTT (WebVTT) format """
-    text = []
+    """Extracts transcript text from VTT (WebVTT) file."""
     try:
-        for caption in webvtt.read(file_path):
-            text.append(caption.text)
+        text = [caption.text for caption in webvtt.read(file_path)]
         return "\n".join(text)
     except Exception as e:
-        return f"Error parsing VTT: {str(e)}"
-
+        return f"⚠️ Error parsing VTT file: {str(e)}"
 
 def extract_from_docx(file_path: str) -> str:
-    """ Extracts transcript text from DOCX file """
-    text = []
+    """Extracts transcript text from DOCX file."""
     try:
         doc = docx.Document(file_path)
-        for para in doc.paragraphs:
-            text.append(para.text)
+        text = [para.text for para in doc.paragraphs if para.text.strip()]
         return "\n".join(text)
     except Exception as e:
-        return f"Error parsing DOCX: {str(e)}"
+        return f"⚠️ Error parsing DOCX file: {str(e)}"
